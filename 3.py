@@ -1,4 +1,4 @@
-import cmath,math
+import cmath
 
 def root3(a,b,c,d):
     b = b/a
