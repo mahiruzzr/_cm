@@ -56,7 +56,7 @@ $$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T$$
 ### 4.1 奇異值分佈分析
 下圖展示了奇異值的大小分佈。可以看到數值在最初幾項急劇下降，這證實了**圖片的大部分資訊（能量）僅集中在前少數幾個特徵上**。
 
-![奇異值分佈圖]([singular_values.png](https://github.com/mahiruzzr/_cm/blob/8d6d2df7b7ce043606f3981d9a3becd502f9f93a/compression_result.png))
+![奇異值分佈圖]((https://github.com/mahiruzzr/_cm/blob/8d6d2df7b7ce043606f3981d9a3becd502f9f93a/compression_result.png))
 
 ### 4.2 不同 k 值的壓縮效果對比
 我們測試了保留不同數量 ($k$) 的奇異值，結果如下：
