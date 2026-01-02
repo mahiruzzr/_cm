@@ -2,7 +2,7 @@
 
 | 作業編號 | 作業連結 | AI 輔助工具 |
 | :--- | :--- | :--- |
-| Homework 1 | [HW1](./HW1) | ChatGPT |
+| Homework 1 | [HW1](1.py) | ChatGPT |
 | Homework 2 | [HW2](./HW2) | ChatGPT |
 | Homework 3 | [HW3](./HW3) | ChatGPT |
 | Homework 4 | [HW4](./HW4) | ChatGPT |
