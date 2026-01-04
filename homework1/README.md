@@ -1,4 +1,4 @@
-# 🖼️ 基於奇異值分解 (SVD) 的影像壓縮實作
+# 基於奇異值分解 (SVD) 的影像壓縮實作
 ### Image Compression via Singular Value Decomposition
 
 > **課程名稱：** [程式與數學]  
