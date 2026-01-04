@@ -52,25 +52,3 @@
 $$a \times (b + c) = (a \times b) + (a \times c)$$
 
 這是驗證我們的實作是否為「體」的最終關卡。若加法與乘法各自獨立運作正常，但無法通過分配律測試，則該結構不能稱為體。
-
----
-
-## 💻 程式設計模式
-
-### 組合模式 (Composition)
-在 `field_finite.py` 中，`FiniteField` 類別並不直接實作運算，而是**組合**了 `FiniteFieldAddGroup` 與 `FiniteFieldMulGroup`。這反映了數學上「體包含兩個群」的結構。
-
-### 運算子重載 (Operator Overloading)
-在 `finite_field_element.py` 中，我們定義了 `__add__`, `__mul__` 等魔術方法。
-* **數學寫法**：`a + b`
-* **程式轉換**：`a.__add__(b)` $\rightarrow$ `field.add(a, b)` $\rightarrow$ `(a.value + b.value) % p`
-這讓程式碼的使用體驗與一般數學運算無異。
-
----
-
-## 🚀 如何執行
-
-請確保上述 4 個檔案位於同一目錄下，然後執行主測試程式：
-
-```bash
-python field_axioms.py
