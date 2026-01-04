@@ -25,9 +25,8 @@ $$A = U \Sigma V^T$$
 其中：
 * **$U$ (Left Singular Vectors)**：是一個 $m \times m$ 的正交矩陣，代表圖片在**垂直方向**的特徵基底。
 * **$\Sigma$ (Singular Values)**：是一個 $m \times n$ 的對角矩陣，對角線上的元素 $\sigma_1, \sigma_2, \dots, \sigma_r$ 即為**奇異值**。
-* 
-    * 特性：$\sigma_1 \ge \sigma_2 \ge \dots \ge 0$。
-    * 物理意義：奇異值的大小代表了該特徵對圖片的「重要程度」或「能量」。
+* * 特性：$\sigma_1 \ge \sigma_2 \ge \dots \ge 0$。
+  * 物理意義：奇異值的大小代表了該特徵對圖片的「重要程度」或「能量」。
 * **$V^T$ (Right Singular Vectors)**：是一個 $n \times n$ 的正交矩陣，代表圖片在**水平方向**的特徵基底。
 
 ### 2.2 低秩近似 (Low-Rank Approximation)
