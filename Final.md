@@ -5,7 +5,7 @@
 | Homework 1 | [HW1](1.py) | Gemini |
 | Homework 2 | [HW2](2.py) | Gemini |
 | Homework 3 | [HW3](3.py) | Gemini |
-| Homework 4 | [HW4](4.py) | Gemini |
+| Homework 4 | [HW4](https://github.com/mahiruzzr/_cm/tree/cf5d94650183a12b5c93db036a2e2bec4334379c/HW) | Gemini |
 | Homework 5 | [HW5](./HW1) | Gemini |
 | Homework 6 | [HW6](./HW3) | Gemini |
 | Homework 7 | [HW7](https://gemini.google.com/share/27055ae2434a) | Gemini |
