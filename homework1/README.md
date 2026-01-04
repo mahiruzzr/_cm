@@ -1,10 +1,6 @@
 # 🖼️ 基於奇異值分解 (SVD) 的影像壓縮實作
 ### Image Compression via Singular Value Decomposition
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/Library-NumPy-013243?logo=numpy&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Library-Matplotlib-orange?logo=python&logoColor=white)
-
 > **課程名稱：** [程式與數學]  
 > **作者：** [張政榮/111310546]  
 > **日期：** 2026/01/03
