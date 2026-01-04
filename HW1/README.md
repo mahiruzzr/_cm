@@ -1,0 +1,76 @@
+# 有限體 (Finite Field) 數學原理與 Python 實作
+
+本專案實作了代數學中的 **有限體 (Finite Field)**，具體來說是質數體 $GF(p)$。透過物件導向程式設計，我們將抽象的代數公理轉化為可執行的程式碼，並驗證其是否符合數學定義。
+
+## 📂 檔案結構與功能
+
+本專案由四個主要檔案組成，分別對應不同的數學層次：
+
+1.  **`group_axioms.py`**：定義並檢驗**群 (Group)** 的數學公理。
+2.  **`field_finite.py`**：實作有限體的核心邏輯，包含加法群與乘法群的運算。
+3.  **`finite_field_element.py`**：實作**元素 (Element)** 物件，透過運算子重載提供直觀的數學操作介面。
+4.  **`field_axioms.py`**：整合測試，驗證上述實作是否符合**體 (Field)** 的完整定義（特別是分配律）。
+
+---
+
+## 🧮 數學原理深度解析
+
+### 1. 什麼是有限體 $GF(p)$？
+有限體是一個包含有限個元素的集合，在此集合上定義了**加法**與**乘法**兩種運算。
+在本實作中，我們採用 **模運算 (Modular Arithmetic)** 來建構體，其中 $p$ 必須為**質數**。
+
+* **集合範圍**：$S = \{0, 1, 2, ..., p-1\}$
+* **運算規則**：所有運算結果均取模 $p$ ($a \pmod p$)，確保結果永遠落在集合 $S$ 內（**封閉性**）。
+
+### 2. 群論基礎 (`group_axioms.py`)
+一個集合要成為「群」，必須符合以下公理。本程式透過大量隨機測試來驗證這些性質：
+
+* **封閉性 (Closure)**：對於所有 $a, b \in G$，運算結果 $a \cdot b$ 仍在 $G$ 中。
+* **結合律 (Associativity)**：$(a \cdot b) \cdot c = a \cdot (b \cdot c)$。
+* **單位元素 (Identity Element)**：存在一元素 $e$，使得 $a \cdot e = a$。
+    * 加法單位元為 $0$。
+    * 乘法單位元為 $1$。
+* **反元素 (Inverse Element)**：對於每一元素 $a$，存在 $a^{-1}$ 使得 $a \cdot a^{-1} = e$。
+* **交換律 (Commutativity)**：$a \cdot b = b \cdot a$（符合此律者稱為**阿貝爾群**）。
+
+### 3. 體的構成 (`field_finite.py`)
+一個體 (Field) 實際上是由兩個交換群所組成的結構：
+
+#### A. 加法群 $(GF(p), +)$
+* 包含所有元素 $\{0, ..., p-1\}$。
+* **加法逆元**：對於元素 $a$，其逆元為 $-a \pmod p$（即 $p-a$）。
+    * 程式實作：`inverse(val) = (-val) % p`
+
+#### B. 乘法群 $(GF(p) \setminus \{0\}, \times)$
+* 包含所有**非零**元素 $\{1, ..., p-1\}$。
+* **乘法逆元**：這是有限體實作最關鍵的部分。對於元素 $a$，我們需要找到 $x$ 使得 $a \cdot x \equiv 1 \pmod p$。
+    * 程式實作：使用 Python 內建的 `pow(val, -1, p)`。
+    * 數學原理：這背後運用了 **擴展歐幾里得演算法 (Extended Euclidean Algorithm)** 或 **費馬小定理 (Fermat's Little Theorem)**。
+
+### 4. 分配律：連接兩群的橋樑 (`field_axioms.py`)
+要形成一個體，乘法必須對加法具有**分配律 (Distributivity)**：
+$$a \times (b + c) = (a \times b) + (a \times c)$$
+
+這是驗證我們的實作是否為「體」的最終關卡。若加法與乘法各自獨立運作正常，但無法通過分配律測試，則該結構不能稱為體。
+
+---
+
+## 💻 程式設計模式
+
+### 組合模式 (Composition)
+在 `field_finite.py` 中，`FiniteField` 類別並不直接實作運算，而是**組合**了 `FiniteFieldAddGroup` 與 `FiniteFieldMulGroup`。這反映了數學上「體包含兩個群」的結構。
+
+### 運算子重載 (Operator Overloading)
+在 `finite_field_element.py` 中，我們定義了 `__add__`, `__mul__` 等魔術方法。
+* **數學寫法**：`a + b`
+* **程式轉換**：`a.__add__(b)` $\rightarrow$ `field.add(a, b)` $\rightarrow$ `(a.value + b.value) % p`
+這讓程式碼的使用體驗與一般數學運算無異。
+
+---
+
+## 🚀 如何執行
+
+請確保上述 4 個檔案位於同一目錄下，然後執行主測試程式：
+
+```bash
+python field_axioms.py
