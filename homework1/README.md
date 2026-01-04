@@ -4,7 +4,7 @@
 > **課程名稱：** [程式與數學]
 > **作者：** [張政榮/111310546]
 > **日期：** 2026/01/03
->[[AI對話](https://gemini.google.com/share/ed99898)]
+>[[AI對話](https://gemini.google.com/share/6a959ca17845)]
 
 ---
 
